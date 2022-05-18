@@ -1,5 +1,9 @@
-FROM node:14-alpine
-WORKDIR /usr/src/app
-ADD node_modules.tar.gz /usr/src/app/
-COPY . /usr/src/app/
-ENTRYPOINT [ "npm" , "start" ]
+FROM mjgargani/puppeteer:trybe1.0 AS todotests
+
+WORKDIR /app
+
+ADD node_modules.tar.gz .
+
+COPY . .
+
+CMD [ "npm" , "test" ]
