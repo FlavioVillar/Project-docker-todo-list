@@ -4,8 +4,8 @@ services:
  todotests:
   build: ./todo-app/tests
   depends_on:
-   - "todofront"
-   - "todoback"
+   - 'todoback'
+   - 'todofront'
   environment: 
    - FRONT_HOST=todofront
 
@@ -14,7 +14,7 @@ services:
   ports:
    - 3000:3000
   depends_on:
-   - "todoback"
+   - 'todoback'
   environment:
    - REACT_APP_API_HOST=todoback
 

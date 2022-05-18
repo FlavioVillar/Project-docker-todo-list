@@ -1,12 +1,14 @@
-FROM node:14-alpine AS todofrontend
+FROM node:14-alpine
 
-WORKDIR /app
+WORKDIR /usr/app
 
-ADD node_modules.tar.gz .
+COPY package*.json ./
+
+ADD node_modules.tar.gz ./
+
+RUN npm install
 
 COPY . .
-
-EXPOSE 3000
 
 CMD [ "npm" , "start" ]
 
